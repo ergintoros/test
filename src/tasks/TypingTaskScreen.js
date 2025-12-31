@@ -14,7 +14,7 @@ import {
   Vibration,
   Keyboard,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { colors, spacing, fontSizes, borderRadius, shadows } from '../styles/theme';
 
 const SENTENCES = {

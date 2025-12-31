@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { colors, spacing, fontSizes, borderRadius, shadows } from '../styles/theme';
 import { TASK_TYPES } from '../utils/alarmStorage';
 

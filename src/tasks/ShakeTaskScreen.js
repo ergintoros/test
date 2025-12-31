@@ -11,8 +11,8 @@ import {
   Animated,
   Vibration,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { accelerometer, setUpdateIntervalForType, SensorTypes } from 'react-native-sensors';
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+import { Accelerometer } from 'expo-sensors';
 import { colors, spacing, fontSizes, borderRadius, shadows } from '../styles/theme';
 
 const ShakeTaskScreen = ({ navigation, route }) => {
@@ -39,9 +39,9 @@ const ShakeTaskScreen = ({ navigation, route }) => {
   const SHAKE_COOLDOWN = 100; // ms
 
   useEffect(() => {
-    setUpdateIntervalForType(SensorTypes.accelerometer, 50);
+    Accelerometer.setUpdateInterval(50);
 
-    const subscription = accelerometer.subscribe(({ x, y, z }) => {
+    const subscription = Accelerometer.addListener(({ x, y, z }) => {
       const totalAcceleration = Math.sqrt(x * x + y * y + z * z);
       const now = Date.now();
 
@@ -56,7 +56,7 @@ const ShakeTaskScreen = ({ navigation, route }) => {
     });
 
     return () => {
-      subscription.unsubscribe();
+      subscription.remove();
     };
   }, [lastShakeTime, isCompleted, shakeCount]);
 

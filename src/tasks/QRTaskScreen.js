@@ -12,8 +12,8 @@ import {
   Alert,
   Vibration,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { RNCamera } from 'react-native-camera';
+import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
+// Not: Gercek uygulamada expo-camera kullanilir
 import { colors, spacing, fontSizes, borderRadius, shadows } from '../styles/theme';
 
 const QRTaskScreen = ({ navigation, route }) => {
